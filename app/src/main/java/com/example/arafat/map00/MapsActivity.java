@@ -103,9 +103,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE));
         currentLocationMarker = mMap.addMarker(markerOptions);
 
-        if (client != null) {
+        /*if (client != null) {
             LocationServices.FusedLocationApi.removeLocationUpdates(client, this);
-        }
+        }*/
 
     }
 
@@ -167,3 +167,20 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         }
     }
 }
+/*
+*
+*
+*
+double[] startValues = new double[]{marker.getPosition().latitude, marker.getPosition().longitude};
+double[] endValues = new double[]{destLatLng.latitude, destLatLng.longitude};
+ValueAnimator latLngAnimator = ValueAnimator.ofObject(new DoubleArrayEvaluator(), startValues, endValues);
+latLngAnimator.setDuration(600);
+latLngAnimator.setInterpolator(new DecelerateInterpolator());
+latLngAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+    @Override
+    public void onAnimationUpdate(ValueAnimator animation) {
+        double[] animatedValue = (double[]) animation.getAnimatedValue();
+        marker.setPosition(new LatLng(animatedValue[0], animatedValue[1]));
+    }
+});
+latLngAnimator.start();*/
